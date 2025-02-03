@@ -43,6 +43,15 @@ import { position } from "./layout/position";
 import { topRightBottomLeft } from "./layout/top-right-bottom-left";
 import { visibility } from "./layout/visibility";
 import { zIndex } from "./layout/z-index";
+import { height } from "./sizing/height";
+import { maxHeight } from "./sizing/max-height";
+import { maxWidth } from "./sizing/max-width";
+import { minHeight } from "./sizing/min-height";
+import { minWidth } from "./sizing/min-width";
+import { size } from "./sizing/size";
+import { margin } from "./spacing/margin";
+import { padding } from "./spacing/padding";
+import { spaceBetween } from "./spacing/space-between";
 
 const layout = [
   ...new Map(createClazzArray(aspectRatio)),
@@ -94,4 +103,25 @@ const flexboxGrid = [
   ...new Map(createClazzArray(placeSelf)),
 ];
 
-export const classes = new Map([...layout, ...flexboxGrid]);
+const spacing = [
+  ...new Map(createClazzArray(margin)),
+  ...new Map(createClazzArray(padding)),
+  ...new Map(createClazzArray(spaceBetween)),
+];
+
+const sizing = [
+  ...new Map(createClazzArray(height)),
+  ...new Map(createClazzArray(maxHeight)),
+  ...new Map(createClazzArray(maxWidth)),
+  ...new Map(createClazzArray(minHeight)),
+  ...new Map(createClazzArray(minWidth)),
+  ...new Map(createClazzArray(size)),
+  ...new Map(createClazzArray(spaceBetween)),
+];
+
+export const classes = new Map([
+  ...layout,
+  ...flexboxGrid,
+  ...spacing,
+  ...sizing,
+]);
