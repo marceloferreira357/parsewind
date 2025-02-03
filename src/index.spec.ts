@@ -1,4 +1,4 @@
-import { classes } from "./classes/classes";
+import { classes } from "./classes";
 import { pw } from "./index";
 
 describe("pw function", () => {

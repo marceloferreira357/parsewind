@@ -1,4 +1,4 @@
-import { classes } from "./classes/classes";
+import { classes } from "./classes";
 
 const classCache = new Map<string, string>();
 
