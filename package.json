@@ -1,0 +1,22 @@
+{
+  "name": "parsewind",
+  "version": "1.0.0",
+  "description": "Parsewind is a lightweight utility that transforms Tailwind CSS classes into their corresponding inline CSS styles. It parses the provided Tailwind classes and converts them into a string of standard CSS styles.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "tsx": "^4.19.2"
+  }
+}
