@@ -307,6 +307,6 @@ export const colorPalette = {
   "stone-800": { color: "oklch(0.268 0.007 34.298);" },
   "stone-900": { color: "oklch(0.216 0.006 56.043);" },
   "stone-950": { color: "oklch(0.147 0.004 49.25);" },
-  black: { color: "#000;" },
-  white: { color: "#fff;" },
+  black: { color: "oklch(0% 0 0)" },
+  white: { color: "oklch(100% 0 1)" },
 };

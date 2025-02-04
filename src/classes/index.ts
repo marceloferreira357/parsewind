@@ -1,4 +1,13 @@
 import { createClazzArray } from "../common/utils";
+import { backgroundAttachment } from "./backgrounds/background-attachment";
+import { backgroundClip } from "./backgrounds/background-clip";
+import { backgroundColor } from "./backgrounds/background-color";
+import { backgroundImage } from "./backgrounds/background-image";
+import { backgroundOrigin } from "./backgrounds/background-origin";
+import { backgroundPosition } from "./backgrounds/background-position";
+import { backgroundRepeat } from "./backgrounds/background-repeat";
+import { backgroundSize } from "./backgrounds/background-size";
+import { gradientColorStops } from "./backgrounds/gradient-color-stops";
 import { alignContent } from "./flexbox-grid/align-content";
 import { alignItems } from "./flexbox-grid/align-items";
 import { alignSelf } from "./flexbox-grid/align-self";
@@ -178,10 +187,23 @@ const typography = [
   ...new Map(createClazzArray(wordBreak)),
 ];
 
+const backgrounds = [
+  ...new Map(createClazzArray(backgroundAttachment)),
+  ...new Map(createClazzArray(backgroundClip)),
+  ...new Map(createClazzArray(backgroundColor)),
+  ...new Map(createClazzArray(backgroundImage)),
+  ...new Map(createClazzArray(backgroundOrigin)),
+  ...new Map(createClazzArray(backgroundPosition)),
+  ...new Map(createClazzArray(backgroundRepeat)),
+  ...new Map(createClazzArray(backgroundSize)),
+  ...new Map(createClazzArray(gradientColorStops)),
+];
+
 export const classes = new Map([
   ...layout,
   ...flexboxGrid,
   ...spacing,
   ...sizing,
   ...typography,
+  ...backgrounds,
 ]);
