@@ -2,11 +2,9 @@ import { spacingScale } from "../../common/constants";
 import { clazzArrayToMap } from "../../common/utils";
 
 export const maxHeight = clazzArrayToMap([
-  ...Object.entries(spacingScale)
-    .map(([key, { rem }]) => [
-      { clazz: `max-h-${key}`, properties: `max-height: ${rem};` },
-    ])
-    .flat(),
+  ...Object.entries(spacingScale).flatMap(([key, { rem }]) => [
+    { clazz: `max-h-${key}`, properties: `max-height: ${rem};` },
+  ]),
   { clazz: "max-h-px", properties: "max-height: 1px;" },
   { clazz: "max-h-none", properties: "max-height: none;" },
   { clazz: "max-h-full", properties: "max-height: 100%;" },

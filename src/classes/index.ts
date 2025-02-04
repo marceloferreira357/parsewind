@@ -52,6 +52,34 @@ import { size } from "./sizing/size";
 import { margin } from "./spacing/margin";
 import { padding } from "./spacing/padding";
 import { spaceBetween } from "./spacing/space-between";
+import { content } from "./typography/content";
+import { fontFamily } from "./typography/font-family";
+import { fontSize } from "./typography/font-size";
+import { fontSmoothing } from "./typography/font-smoothing";
+import { fontStyle } from "./typography/font-style";
+import { fontVariantNumeric } from "./typography/font-variant-numeric";
+import { fontWeight } from "./typography/font-weight";
+import { hyphens } from "./typography/hyphens";
+import { letterSpacing } from "./typography/letter-spacing";
+import { lineClamp } from "./typography/line-clamp";
+import { lineHeight } from "./typography/line-height";
+import { listStyleImage } from "./typography/list-style-image";
+import { listStylePosition } from "./typography/list-style-position";
+import { listStyleType } from "./typography/list-style-type";
+import { textAlign } from "./typography/text-align";
+import { textColor } from "./typography/text-color";
+import { textDecoration } from "./typography/text-decoration";
+import { textDecorationColor } from "./typography/text-decoration-color";
+import { textDecorationStyles } from "./typography/text-decoration-style";
+import { textDecorationThickness } from "./typography/text-decoration-thickness";
+import { textIndent } from "./typography/text-indent";
+import { textOverflow } from "./typography/text-overflow";
+import { textTransform } from "./typography/text-transform";
+import { textUnderlineOffset } from "./typography/text-underline-offset";
+import { textWrap } from "./typography/text-wrap";
+import { verticalAlign } from "./typography/vertical-align";
+import { whitespace } from "./typography/whitespace";
+import { wordBreak } from "./typography/word-break";
 
 const layout = [
   ...new Map(createClazzArray(aspectRatio)),
@@ -119,9 +147,41 @@ const sizing = [
   ...new Map(createClazzArray(spaceBetween)),
 ];
 
+const typography = [
+  ...new Map(createClazzArray(content)),
+  ...new Map(createClazzArray(fontFamily)),
+  ...new Map(createClazzArray(fontSize)),
+  ...new Map(createClazzArray(fontSmoothing)),
+  ...new Map(createClazzArray(fontStyle)),
+  ...new Map(createClazzArray(fontVariantNumeric)),
+  ...new Map(createClazzArray(fontWeight)),
+  ...new Map(createClazzArray(hyphens)),
+  ...new Map(createClazzArray(letterSpacing)),
+  ...new Map(createClazzArray(lineClamp)),
+  ...new Map(createClazzArray(lineHeight)),
+  ...new Map(createClazzArray(listStyleImage)),
+  ...new Map(createClazzArray(listStylePosition)),
+  ...new Map(createClazzArray(listStyleType)),
+  ...new Map(createClazzArray(textAlign)),
+  ...new Map(createClazzArray(textColor)),
+  ...new Map(createClazzArray(textDecorationColor)),
+  ...new Map(createClazzArray(textDecorationStyles)),
+  ...new Map(createClazzArray(textDecorationThickness)),
+  ...new Map(createClazzArray(textDecoration)),
+  ...new Map(createClazzArray(textIndent)),
+  ...new Map(createClazzArray(textOverflow)),
+  ...new Map(createClazzArray(textTransform)),
+  ...new Map(createClazzArray(textUnderlineOffset)),
+  ...new Map(createClazzArray(textWrap)),
+  ...new Map(createClazzArray(verticalAlign)),
+  ...new Map(createClazzArray(whitespace)),
+  ...new Map(createClazzArray(wordBreak)),
+];
+
 export const classes = new Map([
   ...layout,
   ...flexboxGrid,
   ...spacing,
   ...sizing,
+  ...typography,
 ]);

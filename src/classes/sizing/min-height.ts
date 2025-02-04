@@ -2,11 +2,9 @@ import { spacingScale } from "../../common/constants";
 import { clazzArrayToMap } from "../../common/utils";
 
 export const minHeight = clazzArrayToMap([
-  ...Object.entries(spacingScale)
-    .map(([key, { rem }]) => [
-      { clazz: `min-h-${key}`, properties: `min-height: ${rem};` },
-    ])
-    .flat(),
+  ...Object.entries(spacingScale).flatMap(([key, { rem }]) => [
+    { clazz: `min-h-${key}`, properties: `min-height: ${rem};` },
+  ]),
   { clazz: "min-h-px", properties: "min-height: 1px;" },
   { clazz: "min-h-full", properties: "min-height: 100%;" },
   { clazz: "min-h-screen", properties: "min-height: 100vh;" },

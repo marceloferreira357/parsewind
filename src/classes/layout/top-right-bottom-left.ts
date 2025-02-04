@@ -1,4 +1,4 @@
-import { spacingScale } from "../../common/constants";
+import { percentageSpacingScale, spacingScale } from "../../common/constants";
 import { clazzArrayToMap } from "../../common/utils";
 
 export const topRightBottomLeft = clazzArrayToMap([
@@ -11,89 +11,87 @@ export const topRightBottomLeft = clazzArrayToMap([
   { clazz: "right-px", properties: "right: 1px;" },
   { clazz: "bottom-px", properties: "bottom: 1px;" },
   { clazz: "left-px", properties: "left: 1px;" },
-  ...Object.entries(spacingScale)
-    .map(([key, { rem, px }]) => [
-      { clazz: `inset-${key}`, properties: `inset: ${rem};` },
-      { clazz: `inset-x-${key}`, properties: `left: ${px}; right: ${px};` },
-      { clazz: `inset-y-${key}`, properties: `top: ${px}; bottom: ${px};` },
-      { clazz: `start-${key}`, properties: `inset-inline-start: ${px};` },
-      { clazz: `end-${key}`, properties: `inset-inline-end: ${px};` },
-      { clazz: `top-${key}`, properties: `top: ${px};` },
-      { clazz: `right-${key}`, properties: `right: ${px};` },
-      { clazz: `bottom-${key}`, properties: `bottom: ${px};` },
-      { clazz: `left-${key}`, properties: `left: ${px};` },
-    ])
-    .flat(),
+  ...Object.entries(spacingScale).flatMap(([key, { rem, px }]) => [
+    { clazz: `inset-${key}`, properties: `inset: ${rem};` },
+    { clazz: `inset-x-${key}`, properties: `left: ${px}; right: ${px};` },
+    { clazz: `inset-y-${key}`, properties: `top: ${px}; bottom: ${px};` },
+    { clazz: `start-${key}`, properties: `inset-inline-start: ${px};` },
+    { clazz: `end-${key}`, properties: `inset-inline-end: ${px};` },
+    { clazz: `top-${key}`, properties: `top: ${px};` },
+    { clazz: `right-${key}`, properties: `right: ${px};` },
+    { clazz: `bottom-${key}`, properties: `bottom: ${px};` },
+    { clazz: `left-${key}`, properties: `left: ${px};` },
+  ]),
   { clazz: "inset-auto", properties: "inset: auto;" },
-  { clazz: "inset-1/2", properties: "inset: 50%;" },
-  { clazz: "inset-1/3", properties: "inset: 33.333333%;" },
-  { clazz: "inset-2/3", properties: "inset: 66.666667%;" },
-  { clazz: "inset-1/4", properties: "inset: 25%;" },
-  { clazz: "inset-2/4", properties: "inset: 50%;" },
-  { clazz: "inset-3/4", properties: "inset: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `inset-${key}`,
+      properties: `inset: ${percentage};`,
+    })),
   { clazz: "inset-full", properties: "inset: 100%;" },
   { clazz: "inset-x-auto", properties: "left: auto; right: auto;" },
-  { clazz: "inset-x-1/2", properties: "left: 50%; right: 50%;" },
-  { clazz: "inset-x-1/3", properties: "left: 33.333333%; right: 33.333333%;" },
-  { clazz: "inset-x-2/3", properties: "left: 66.666667%; right: 66.666667%;" },
-  { clazz: "inset-x-1/4", properties: "left: 25%; right: 25%;" },
-  { clazz: "inset-x-2/4", properties: "left: 50%; right: 50%;" },
-  { clazz: "inset-x-3/4", properties: "left: 75%; right: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `inset-x-${key}`,
+      properties: `left: ${percentage}; right: ${percentage};`,
+    })),
   { clazz: "inset-x-full", properties: "left: 100%; right: 100%;" },
   { clazz: "inset-y-auto", properties: "top: auto; bottom: auto;" },
-  { clazz: "inset-y-1/2", properties: "top: 50%; bottom: 50%;" },
-  { clazz: "inset-y-1/3", properties: "top: 33.333333%; bottom: 33.333333%;" },
-  { clazz: "inset-y-2/3", properties: "top: 66.666667%; bottom: 66.666667%;" },
-  { clazz: "inset-y-1/4", properties: "top: 25%; bottom: 25%;" },
-  { clazz: "inset-y-2/4", properties: "top: 50%; bottom: 50%;" },
-  { clazz: "inset-y-3/4", properties: "top: 75%; bottom: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `inset-y-${key}`,
+      properties: `top: ${percentage}; bottom: ${percentage};`,
+    })),
   { clazz: "inset-y-full", properties: "top: 100%; bottom: 100%;" },
   { clazz: "start-auto", properties: "inset-inline-start: auto;" },
-  { clazz: "start-1/2", properties: "inset-inline-start: 50%;" },
-  { clazz: "start-1/3", properties: "inset-inline-start: 33.333333%;" },
-  { clazz: "start-2/3", properties: "inset-inline-start: 66.666667%;" },
-  { clazz: "start-1/4", properties: "inset-inline-start: 25%;" },
-  { clazz: "start-2/4", properties: "inset-inline-start: 50%;" },
-  { clazz: "start-3/4", properties: "inset-inline-start: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `start-${key}`,
+      properties: `inset-inline-start: ${percentage};`,
+    })),
   { clazz: "start-full", properties: "inset-inline-start: 100%;" },
   { clazz: "end-auto", properties: "inset-inline-end: auto;" },
-  { clazz: "end-1/2", properties: "inset-inline-end: 50%;" },
-  { clazz: "end-1/3", properties: "inset-inline-end: 33.333333%;" },
-  { clazz: "end-2/3", properties: "inset-inline-end: 66.666667%;" },
-  { clazz: "end-1/4", properties: "inset-inline-end: 25%;" },
-  { clazz: "end-2/4", properties: "inset-inline-end: 50%;" },
-  { clazz: "end-3/4", properties: "inset-inline-end: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `end-${key}`,
+      properties: `inset-inline-end: ${percentage};`,
+    })),
   { clazz: "end-full", properties: "inset-inline-end: 100%;" },
   { clazz: "top-auto", properties: "top: auto;" },
-  { clazz: "top-1/2", properties: "top: 50%;" },
-  { clazz: "top-1/3", properties: "top: 33.333333%;" },
-  { clazz: "top-2/3", properties: "top: 66.666667%;" },
-  { clazz: "top-1/4", properties: "top: 25%;" },
-  { clazz: "top-2/4", properties: "top: 50%;" },
-  { clazz: "top-3/4", properties: "top: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `top-${key}`,
+      properties: `top: ${percentage};`,
+    })),
   { clazz: "top-full", properties: "top: 100%;" },
   { clazz: "right-auto", properties: "right: auto;" },
-  { clazz: "right-1/2", properties: "right: 50%;" },
-  { clazz: "right-1/3", properties: "right: 33.333333%;" },
-  { clazz: "right-2/3", properties: "right: 66.666667%;" },
-  { clazz: "right-1/4", properties: "right: 25%;" },
-  { clazz: "right-2/4", properties: "right: 50%;" },
-  { clazz: "right-3/4", properties: "right: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `right-${key}`,
+      properties: `right: ${percentage};`,
+    })),
   { clazz: "right-full", properties: "right: 100%;" },
   { clazz: "bottom-auto", properties: "bottom: auto;" },
-  { clazz: "bottom-1/2", properties: "bottom: 50%;" },
-  { clazz: "bottom-1/3", properties: "bottom: 33.333333%;" },
-  { clazz: "bottom-2/3", properties: "bottom: 66.666667%;" },
-  { clazz: "bottom-1/4", properties: "bottom: 25%;" },
-  { clazz: "bottom-2/4", properties: "bottom: 50%;" },
-  { clazz: "bottom-3/4", properties: "bottom: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `bottom-${key}`,
+      properties: `bottom: ${percentage};`,
+    })),
   { clazz: "bottom-full", properties: "bottom: 100%;" },
   { clazz: "left-auto", properties: "left: auto;" },
-  { clazz: "left-1/2", properties: "left: 50%;" },
-  { clazz: "left-1/3", properties: "left: 33.333333%;" },
-  { clazz: "left-2/3", properties: "left: 66.666667%;" },
-  { clazz: "left-1/4", properties: "left: 25%;" },
-  { clazz: "left-2/4", properties: "left: 50%;" },
-  { clazz: "left-3/4", properties: "left: 75%;" },
+  ...Object.entries(percentageSpacingScale)
+    .filter(([key]) => ["1/2", "1/3", "2/3", "1/4", "2/4", "3/4"].includes(key))
+    .flatMap(([key, { percentage }]) => ({
+      clazz: `left-${key}`,
+      properties: `left: ${percentage};`,
+    })),
   { clazz: "left-full", properties: "left: 100%;" },
 ]);

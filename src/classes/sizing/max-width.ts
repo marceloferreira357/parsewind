@@ -2,11 +2,9 @@ import { spacingScale } from "../../common/constants";
 import { clazzArrayToMap } from "../../common/utils";
 
 export const maxWidth = clazzArrayToMap([
-  ...Object.entries(spacingScale)
-    .map(([key, { rem }]) => [
-      { clazz: `max-w-${key}`, properties: `max-width: ${rem};` },
-    ])
-    .flat(),
+  ...Object.entries(spacingScale).flatMap(([key, { rem }]) => [
+    { clazz: `max-w-${key}`, properties: `max-width: ${rem};` },
+  ]),
   { clazz: "max-w-none", properties: "max-width: none;" },
   { clazz: "max-w-xs", properties: "max-width: 20rem;" },
   { clazz: "max-w-sm", properties: "max-width: 24rem;" },

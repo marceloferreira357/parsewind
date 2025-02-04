@@ -2,11 +2,9 @@ import { spacingScale } from "../../common/constants";
 import { clazzArrayToMap } from "../../common/utils";
 
 export const minWidth = clazzArrayToMap([
-  ...Object.entries(spacingScale)
-    .map(([key, { rem }]) => [
-      { clazz: `min-w-${key}`, properties: `min-width: ${rem};` },
-    ])
-    .flat(),
+  ...Object.entries(spacingScale).flatMap(([key, { rem }]) => [
+    { clazz: `min-w-${key}`, properties: `min-width: ${rem};` },
+  ]),
   { clazz: "min-w-px", properties: "min-width: 1px;" },
   { clazz: "min-w-full", properties: "min-width: 100%;" },
   { clazz: "min-w-min", properties: "min-width: min-content;" },

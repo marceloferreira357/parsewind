@@ -20,23 +20,21 @@ export const margin = clazzArrayToMap([
   { clazz: "mr-auto", properties: "margin-right: auto;" },
   { clazz: "mb-auto", properties: "margin-bottom: auto;" },
   { clazz: "ml-auto", properties: "margin-left: auto;" },
-  ...Object.entries(spacingScale)
-    .map(([key, { rem, px }]) => [
-      { clazz: `m-${key}`, properties: `margin: ${rem};` },
-      {
-        clazz: `mx-${key}`,
-        properties: `margin-left: ${px}; margin-right: ${px};`,
-      },
-      {
-        clazz: `my-${key}`,
-        properties: `margin-top: ${px}; margin-bottom: ${px};`,
-      },
-      { clazz: `ms-${key}`, properties: `margin-inline-start: ${px};` },
-      { clazz: `me-${key}`, properties: `margin-inline-end: ${px};` },
-      { clazz: `mt-${key}`, properties: `margin-top: ${px};` },
-      { clazz: `mr-${key}`, properties: `margin-right: ${px};` },
-      { clazz: `mb-${key}`, properties: `margin-bottom: ${px};` },
-      { clazz: `ml-${key}`, properties: `margin-left: ${px};` },
-    ])
-    .flat(),
+  ...Object.entries(spacingScale).flatMap(([key, { rem, px }]) => [
+    { clazz: `m-${key}`, properties: `margin: ${rem};` },
+    {
+      clazz: `mx-${key}`,
+      properties: `margin-left: ${px}; margin-right: ${px};`,
+    },
+    {
+      clazz: `my-${key}`,
+      properties: `margin-top: ${px}; margin-bottom: ${px};`,
+    },
+    { clazz: `ms-${key}`, properties: `margin-inline-start: ${px};` },
+    { clazz: `me-${key}`, properties: `margin-inline-end: ${px};` },
+    { clazz: `mt-${key}`, properties: `margin-top: ${px};` },
+    { clazz: `mr-${key}`, properties: `margin-right: ${px};` },
+    { clazz: `mb-${key}`, properties: `margin-bottom: ${px};` },
+    { clazz: `ml-${key}`, properties: `margin-left: ${px};` },
+  ]),
 ]);

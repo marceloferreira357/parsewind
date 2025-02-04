@@ -11,10 +11,8 @@ export const spaceBetween = clazzArrayToMap([
   { clazz: "space-y-reverse", properties: "--tw-space-y-reverse: 1;" },
   { clazz: "space-x-reverse", properties: "--tw-space-x-reverse: 1;" },
 
-  ...Object.entries(spacingScale)
-    .map(([key, { rem, px }]) => [
-      { clazz: `space-x-${key}`, properties: `margin-left: ${px};` },
-      { clazz: `space-y-${key}`, properties: `margin-top: ${px};` },
-    ])
-    .flat(),
+  ...Object.entries(spacingScale).flatMap(([key, { rem, px }]) => [
+    { clazz: `space-x-${key}`, properties: `margin-left: ${px};` },
+    { clazz: `space-y-${key}`, properties: `margin-top: ${px};` },
+  ]),
 ]);
